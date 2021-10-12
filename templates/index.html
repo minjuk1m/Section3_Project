@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+<body>
+ <div class="login">
+	<h1>데이터 직군 연봉 예측</h1>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<!--<input type="text" name="Country" placeholder="Country" required="required" />-->
+      <label for="United States">United States</label>
+      <select id="United States" name="United States">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <label for="United Kingdom">United Kingdom</label>
+      <select id="United Kingdom" name="United Kingdom">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <label for="Switzerland">Switzerland</label>
+      <select id="Switzerland" name="Switzerland">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <label for="Spain">Spain</label>
+      <select id="Spain" name="Spain">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <label for="Poland">Poland</label>
+      <select id="Poland" name="Poland">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <label for="Netherlands">Netherlands</label>
+      <select id="Netherlands" name="Netherlands">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select> 
+      <br>
+      <label for="Italy">Italy</label>
+      <select id="Italy" name="Italy">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <label for="India">India</label>
+      <select id="India" name="India">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <label for="Germany">Germany</label>
+      <select id="Germany" name="Germany">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <label for="France">France</label>
+      <select id="France" name="France">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <label for="Canada">Canada</label>
+      <select id="Canada" name="Canada">
+        <option value="0">No</option>
+        <option value="1">Yes</option>
+      </select>
+      <br>
+      <label for="Brazil">Brazil</label>
+      <select id="Brazil" name="Brazil">
+        <option value="0">No</option>
+        <option value="1">Yes</option>    
+      </select>
+      <br>
+      <label for="Experience">Experience</label>
+      <select id="Experience" name="Experience">
+        <option value="0.5">0.5</option>
+        <option value="1.0">1</option>
+        <option value="2.0">2</option>
+        <option value="3.0">3</option>
+        <option value="4.0">4</option>
+        <option value="5.0">5</option>
+        <option value="6.0">6</option>
+        <option value="7.0">7</option>
+        <option value="8.0">8</option>
+        <option value="9.0">9</option>
+        <option value="10.0">10</option>
+        <option value="11.0">11</option>
+        <option value="12.0">12</option>
+        <option value="13.0">13</option>
+        <option value="14.0">14</option>
+        <option value="15.0">15</option>
+        <option value="16.0">16</option>
+        <option value="17.0">17</option>
+        <option value="18.0">18</option>
+        <option value="19.0">19</option>
+        <option value="20.0">20</option>
+        <option value="21.0">21</option>
+        <option value="22.0">22</option>
+        <option value="23.0">23</option>
+        <option value="24.0">24</option>
+        <option value="25.0">25</option>
+        <option value="26.0">26</option>
+        <option value="27.0">27</option>
+        <option value="28.0">28</option>
+        <option value="29.0">29</option>
+        <option value="30.0">30</option>
+        <option value="31.0">31</option>
+        <option value="32.0">32</option>
+        <option value="33.0">33</option>
+        <option value="34.0">34</option>
+        <option value="35.0">35</option>
+        <option value="36.0">36</option>
+        <option value="37.0">37</option>
+        <option value="38.0">38</option>
+        <option value="39.0">39</option>
+        <option value="40.0">40</option>
+        <option value="41.0">41</option>
+        <option value="42.0">42</option>
+        <option value="43.0">43</option>
+        <option value="44.0">44</option>
+        <option value="45.0">45</option>
+        <option value="46.0">46</option>
+        <option value="47.0">47</option>
+        <option value="48.0">48</option>
+        <option value="49.0">49</option>
+        <option value="50.0">50</option>
+      </select>
+        <!--<input type="text" name="Education" placeholder="Education" required="required" /> -->
+        <br>
+       <label for="Education">Education</label>
+       <select id="Education" name="Education">
+         <option value="0">Less than a Bachelors</option>
+         <option value="1">Bachelor’s degree</option>
+         <option value="2">Master’s degree</option>
+         <option value="3">Post grad</option>
+       </select>
+       <br>
+       <label for="Age">Age</label>
+       <select id="Age" name="Age">
+         <option value="0">Prefer not to say</option>
+         <option value="1">Under 18 years old</option>
+         <option value="2">18-24 years old</option>
+         <option value="3">25-34 years old</option>
+         <option value="4">35-44 years old</option>
+         <option value="5">45-54 years old</option>
+         <option value="6">55-64 years old</option>
+         <option value="7">65 years or older</option>
+       </select>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
